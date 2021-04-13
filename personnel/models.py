@@ -37,8 +37,10 @@ class Employee(models.Model):
     date_of_birth = models.DateField(verbose_name=_('Дата рождения'))
     photo = models.ImageField(upload_to='employee/photo', verbose_name=_('Фото'))
     subdivision = models.ForeignKey(Subdivision, on_delete=models.SET_NULL,
+                                    null=True, blank=True,
                                     related_name='staff', verbose_name=_('Подразделение'))
     position = models.ForeignKey(Position, on_delete=models.SET_NULL,
+                                 null=True, blank=True,
                                  related_name='staff', verbose_name=_('Должность'))
 
     class Meta:
