@@ -46,6 +46,7 @@ class Employee(models.Model):
     class Meta:
         verbose_name = _('Сотрудник')
         verbose_name_plural = _('Сотрудники')
+        ordering = ['fio']
 
     def __str__(self):
-        return self.fio
+        return f'{self.fio} - {self.subdivision.name} - {self.position.name}'
