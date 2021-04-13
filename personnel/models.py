@@ -39,7 +39,7 @@ class Employee(models.Model):
     subdivision = models.ForeignKey(Subdivision, on_delete=models.SET_NULL,
                                     related_name='staff', verbose_name=_('Подразделение'))
     position = models.ForeignKey(Position, on_delete=models.SET_NULL,
-                                  related_name='staff', verbose_name=_('Должность'))
+                                 related_name='staff', verbose_name=_('Должность'))
 
     class Meta:
         verbose_name = _('Сотрудник')
