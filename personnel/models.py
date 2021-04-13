@@ -8,7 +8,8 @@ class Subdivision(MPTTModel):
     parent = TreeForeignKey('self', on_delete=models.CASCADE,
                             null=True, blank=True, related_name='children')
     director = models.OneToOneField('Employee', on_delete=models.SET_NULL,
-                                    related_name='directors', verbose_name=_('Начальник'))
+                                    blank=True, null=True, related_name='directors',
+                                    verbose_name=_('Начальник'))
 
     class Meta:
         verbose_name = _('Подразделение')
