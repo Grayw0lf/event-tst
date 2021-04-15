@@ -10,6 +10,12 @@ class EmployeeSerializer(serializers.ModelSerializer):
 
 
 class PositionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Position
+        fields = ('name', 'parent')
+
+
+class PositionRecursiveSerializer(serializers.ModelSerializer):
     parent = RecursiveField(allow_null=True)
 
     class Meta:
@@ -18,6 +24,14 @@ class PositionSerializer(serializers.ModelSerializer):
 
 
 class SubdivisionSerializer(serializers.ModelSerializer):
+    director = EmployeeSerializer()
+
+    class Meta:
+        model = Subdivision
+        fields = ('name', 'parent', 'director')
+
+
+class SubdivisionRecursiveSerializer(serializers.ModelSerializer):
     parent = RecursiveField(allow_null=True)
     director = EmployeeSerializer()
 
